@@ -19,8 +19,8 @@ A2.- Observaciones:
 B1.- Pantalla de Informacion [GO]:
 	1. Verificar que se encuentra instalado la version de GO 1.6.X
 	2. Verificar que se encuentra instalado gRPC para GO incluyendo protobuf (GUIA: https://grpc.io/docs/quickstart/go.html)
-	3. Ingresar a la ruta donde se encuentren los archivos de codigo fuente .go
-	4. Comprobar que la ruta del archivo metadatosDisplay.pb.proto sea la correcta. (NOTA)
+	3. Verificar que la carpeta ./protos que contiene el archivo metadatos.proto se copie en el directorio de package de go-grpc (go/src/)
+	4. Ingresar a la ruta donde se encuentren los archivos de codigo fuente .go
 	5. Compilar y ejecutar mediante el comando "make run" (SIN COMILLAS)
 	6. Seguir las instrucciones del programa
 	7. Para eliminar archivos temporales y de compilacion ejecutar "make clean" (SIN COMILLAS)
