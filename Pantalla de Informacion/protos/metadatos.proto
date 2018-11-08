@@ -1,0 +1,104 @@
+syntax = "proto3";
+package proto;
+
+
+service API{
+	rpc DatosHaciatorre (dataAvion) returns (responseTorre){}
+	rpc ComprobarDestino (dataDestino) returns (responseDestino){}
+	rpc SolicitarDespegue (dataDespegue) returns (responseDespegue){}
+	rpc SolicitarAterrizaje (dataAterrizaje) returns (responseAterrizaje){}
+	rpc AvisarDespegue (AvisoDespegue) returns (responseMensaje){}
+	rpc AvisarAterrizaje (AvisoDespegue) returns (responseMensaje){}
+    rpc Departures (mensajes) returns (responseDepartures){}
+    rpc Arrivals (mensajes) returns (responseArrivals){}
+}
+
+message dataAvion{
+	string aerolinea = 1;
+	string codigo = 2;
+	int32 pesoMax = 3;
+	int32 CapTanque = 4;
+	string ipTorreInicial = 5;
+}
+
+message responseTorre {
+	bool estado = 1;
+	string mensaje = 2;
+}
+
+message dataDespegue {
+	string destino = 1;
+	string aerolinea = 2;
+	string codigo = 3;
+	int32 pista = 4;
+	bool segundaInstancia = 5;
+}
+
+message responseDespegue{
+	bool estado = 1;
+	string ipdestino = 2;
+	string mensaje = 3;
+	int32 pista = 4;
+	int32 altura = 5;
+}
+
+message dataAterrizaje{
+	string aerolinea = 1;
+	string codigo = 2;
+	int32 pesoMax = 3;
+	int32 CapTanque = 4;
+	string ipTorreActual = 5;
+	int32 pista = 6;
+	bool segundaInstancia = 7;
+}
+
+message responseAterrizaje{
+	bool estado = 1;
+	string mensaje = 2;
+	int32 pista = 3;
+	int32 altura = 4;
+}
+
+message dataDestino{
+	string destino = 1;
+}
+
+message responseDestino{
+	bool estado = 1;
+}
+
+message AvisoDespegue{
+	int32 pista = 1;
+	string codigo = 2;
+	string lugar = 3;
+}
+
+message responseMensaje{
+	string mensaje = 1;
+}
+
+message mensajes {
+    string mensaje = 1;
+}
+
+message responseDepartures {
+    repeated ObjectDepartures departures = 1;
+}
+
+message responseArrivals {
+    repeated ObjectArrivals arrivals = 1;
+}
+
+message ObjectDepartures {
+    string codigoAvion = 1;
+    string destino = 2;
+    string pistaDespegue = 3;
+    string horaDespegue = 4; 
+}
+
+message ObjectArrivals {
+    string codigoAvion = 1;
+    string proveniente = 2;
+    string pistaLlegada = 3;
+    string horaLlegada = 4;  
+}
